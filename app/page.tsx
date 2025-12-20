@@ -1,65 +1,45 @@
-import Image from "next/image";
+import Navbar from "@/components/navbar";
+import Info from "@/components/info";
+import About from "@/components/about";
+import Skills from "@/components/skills";
+import Experience from "@/components/experience";
+import Contact from "@/components/contact";
+import Projects from "@/components/projects";
 
 export default function Home() {
+  const date = new Date();
+  const year = date.getFullYear();
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <>
+      <div className="md:w-[90%] md:mx-auto">
+        <Navbar />
+        {/* Mobile: flex-col, 95% width | Desktop: flex-row, 80% width */}
+        <main className="flex flex-col md:flex-row w-full md:w-[80%] md:mt-10 mx-auto gap-8 items-center md:items-start">
+
+          {/* Info Section: 90% wide on mobile, auto on desktop */}
+          <div className="w-[90%] md:w-auto">
+            <Info />
+          </div>
+
+          {/* Scrollable Div: 90% wide on mobile, 800px on desktop */}
+          <div
+            id="main-scroll-container"
+            className="w-[90%] md:w-[800px] h-[500px] md:h-[580px] mt-5 mb-10 md:mb-0 md:mt-32 bg-[#121212] rounded-2xl overflow-y-auto overscroll-contain p-6 md:p-8 border border-white/20 shadow-2xl shadow-black"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+            <section id="about" className="scroll-mt-4"><About /></section>
+            <section id="skills" className="scroll-mt-4"><Skills /></section>
+            <section id="experience" className="scroll-mt-4"><Experience /></section>
+            <section id="projects" className="scroll-mt-4"><Projects /></section>
+            <section id="contact" className="scroll-mt-4 mb-20"><Contact /></section>
+          </div>
+        </main>
+
+        {/* Hide standard footer on mobile to keep bottom navbar clear */}
+        <div className="text-center mb-25 md:mb-0 md:fixed md:bottom-4 md:left-1/2 md:-translate-x-1/2 text-white/50 text-sm">
+          © {year} Righteousness. All rights reserved.
         </div>
-      </main>
-    </div>
-  );
+      </div>
+    </>
+  )
 }
