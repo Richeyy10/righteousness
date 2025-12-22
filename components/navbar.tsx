@@ -61,7 +61,7 @@ export default function Navbar() {
         <button
           key={id}
           onClick={() => scrollToSection(id)}
-          className={`capitalize px-4 transition-all text-[8px] md:text-md duration-300 font-semibold ${
+          className={`capitalize px-4 transition-all md:text-[16px] text-[10px] duration-300 font-semibold ${
             activeSection === id ? "bg-[#121212] p-1 rounded-2xl scale-110" : "text-white/50"
           }`}
         >

@@ -42,7 +42,7 @@ export default function Projects() {
 
                         <CardFooter className="flex justify-between gap-4">
                             <Link href={`/${project.id}`} className="w-full">
-                                <Button variant="outline" className="w-full rounded-2xl">View Details</Button>
+                                <Button variant="outline" className="text-white w-full rounded-2xl">View Details</Button>
                             </Link>
                             <div className="flex gap-2">
                                 <a href={project.githubLink} target="_blank"><Button size="icon" variant="ghost"><FaGithub /></Button></a>
