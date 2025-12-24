@@ -57,7 +57,7 @@ export default function About() {
             </svg>
           </Button>
         </Link>
-        <Link href="#projects" className="w-full">
+        <Link href="/public/Righteousness-Ereola.pdf" download = "Righteousness-Ereola.pdf" className="w-full">
           <Button variant="outline" className="w-full font-semibold hover:bg-blue-700 transition rounded-2xl">
             Download CV
             <svg
